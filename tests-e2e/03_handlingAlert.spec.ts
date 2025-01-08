@@ -29,7 +29,7 @@ test ("Handling Confirm box Alert - Accept", async({page}) => {
     await page.close()
 })
 
-test.only ("Handling Confirm box Alert - Cancel", async({page}) => {
+test ("Handling Confirm box Alert - Cancel", async({page}) => {
     await page.goto("https://www.lambdatest.com/selenium-playground/javascript-alert-box-demo")
 
     page.on("dialog", async(alert) =>{
@@ -44,7 +44,7 @@ test.only ("Handling Confirm box Alert - Cancel", async({page}) => {
 
 })
 
-test.only ("Handling Prompt box Alert - Cancel", async({page}) => {
+test("Handling Prompt box Alert - Cancel", async({page}) => {
     await page.goto("https://www.lambdatest.com/selenium-playground/javascript-alert-box-demo")
 
     page.on("dialog", async(alert) =>{
