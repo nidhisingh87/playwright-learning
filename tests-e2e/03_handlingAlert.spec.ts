@@ -44,7 +44,7 @@ test ("Handling Confirm box Alert - Cancel", async({page}) => {
 
 })
 
-test("Handling Prompt box Alert - Cancel", async({page}) => {
+test("Handling Prompt box Alert", async({page}) => {
     await page.goto("https://www.lambdatest.com/selenium-playground/javascript-alert-box-demo")
 
     page.on("dialog", async(alert) =>{
@@ -56,6 +56,26 @@ test("Handling Prompt box Alert - Cancel", async({page}) => {
     await page.locator("(//button[contains(@class,'btn btn-dark')])[3]").click()
     await page.context().close()
     await page.close()
+
+})
+
+test("Handling single Modal Window", async({page}) => {
+    await page.goto("https://www.lambdatest.com/selenium-playground/bootstrap-modal-demo")
+    await page.locator("'Launch Modal'").nth(0).click()
+    //await page.locator("'Save Changes'").nth(0).click() // to click on Save Changes button
+    await page.locator("'Close'").nth(0).click() // to click on close button
+
+})
+
+test("Handling multiple Modal Window", async({page}) => {
+    await page.goto("https://www.lambdatest.com/selenium-playground/bootstrap-modal-demo")
+    await page.locator("'Launch Modal'").nth(1).click()
+
+    await page.locator("'Launch Modal'").nth(2).click()
+    await page.locator("'Save Changes'").nth(2).click()
+
+    //await page.locator("'Save Changes'").nth(1).click() // to click on Save Changes button
+    await page.locator("'Close'").nth(1).click() // to click on close button
 
 })
 
